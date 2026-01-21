@@ -16,16 +16,37 @@ document.addEventListener('DOMContentLoaded', () => {
    ============================================ */
 function initPreloader() {
     const preloader = document.getElementById('preloader');
+    if (!preloader) return;
     
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-            
-            // Trigger hero animations after preloader
-            animateHero();
-        }, 1500);
-    });
+    function hidePreloader() {
+        preloader.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        
+        // Trigger hero animations after preloader
+        animateHero();
+        
+        // Make all sections visible on mobile
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('section-visible');
+        });
+    }
+    
+    // Multiple fallbacks to ensure preloader hides
+    if (document.readyState === 'complete') {
+        // Page already loaded
+        setTimeout(hidePreloader, 1500);
+    } else {
+        window.addEventListener('load', () => {
+            setTimeout(hidePreloader, 1500);
+        });
+    }
+    
+    // Fallback: Force hide after 4 seconds no matter what
+    setTimeout(() => {
+        if (!preloader.classList.contains('hidden')) {
+            hidePreloader();
+        }
+    }, 4000);
 }
 
 /* ============================================

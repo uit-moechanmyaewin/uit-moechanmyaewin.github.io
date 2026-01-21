@@ -2322,6 +2322,33 @@ img {
     margin-top: var(--space-xs);
 }
 
+.footer-pr-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+}
+
+.pr-initials-sm {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2rem;
+    color: white;
+    letter-spacing: 0.2em;
+    padding-right: var(--space-sm);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pr-text-sm {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.1em;
+}
+
 .footer-social {
     display: flex;
     justify-content: center;
@@ -2580,14 +2607,22 @@ img {
 
 /* Section Visibility Animations */
 section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-section.section-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Desktop: animate sections */
+@media (min-width: 769px) {
+    section:not(.hero) {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    section.section-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Hero section should be visible immediately */

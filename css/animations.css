@@ -1270,3 +1270,309 @@
     from { transform: scale(1); }
     to { transform: scale(1.1); }
 }
+
+/* ============================================
+   PREMIUM RECORD LOGO STYLES
+   ============================================ */
+.premium-records-badge {
+    flex-direction: row;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pr-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-right: var(--space-md);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pr-initials {
+    font-family: 'Times New Roman', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.3em;
+    line-height: 1;
+}
+
+.pr-script {
+    font-family: 'Brush Script MT', 'Segoe Script', cursive;
+    font-size: 0.65rem;
+    color: white;
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+.premium-records-badge .badge-content {
+    text-align: left;
+}
+
+.premium-records-badge .badge-content span {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.premium-records-badge .badge-content strong {
+    font-size: 0.7rem;
+    color: white;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+}
+
+/* ============================================
+   FILM RECORDING ANIMATION
+   ============================================ */
+.film-recording-animation {
+    margin: var(--space-lg) 0;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.8s forwards;
+}
+
+.film-reel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.film-reel-mini {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reel-left {
+    animation: reelSpin 3s linear infinite;
+}
+
+.reel-right {
+    animation: reelSpin 3s linear infinite reverse;
+}
+
+.reel-center {
+    width: 12px;
+    height: 12px;
+    background: var(--color-accent);
+    border-radius: 50%;
+}
+
+.film-reel-mini::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    top: 5px;
+}
+
+.film-reel-mini::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    bottom: 5px;
+}
+
+.film-tape {
+    width: 60px;
+    height: 8px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-accent) 0px,
+        var(--color-accent) 4px,
+        transparent 4px,
+        transparent 8px
+    );
+    position: relative;
+    animation: tapeMove 0.5s linear infinite;
+}
+
+@keyframes tapeMove {
+    from { background-position: 0 0; }
+    to { background-position: 8px 0; }
+}
+
+@keyframes reelSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   ENHANCED FILM CELL ANIMATION
+   ============================================ */
+.hero-film-decoration {
+    display: flex;
+    gap: 6px;
+    margin-top: var(--space-md);
+    opacity: 0;
+    animation: fadeIn 1s ease 2s forwards;
+}
+
+.film-cell {
+    width: 32px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    animation: filmFlicker 2s ease-in-out infinite;
+}
+
+.film-cell::before,
+.film-cell::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 1px;
+}
+
+.film-cell::before { top: 2px; left: 2px; }
+.film-cell::after { top: 2px; right: 2px; }
+
+/* Film cell inner glow effect */
+.film-cell:nth-child(odd)::before {
+    box-shadow: 0 0 4px var(--color-accent);
+}
+
+.film-cell:nth-child(1) { animation-delay: 0s; }
+.film-cell:nth-child(2) { animation-delay: 0.2s; }
+.film-cell:nth-child(3) { animation-delay: 0.4s; }
+.film-cell:nth-child(4) { animation-delay: 0.6s; }
+.film-cell:nth-child(5) { animation-delay: 0.8s; }
+
+/* ============================================
+   CAMERA ROLLING EFFECT
+   ============================================ */
+.camera-rolling {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    z-index: 50;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 2.5s forwards;
+}
+
+.rolling-dot {
+    width: 8px;
+    height: 8px;
+    background: #ff3333;
+    border-radius: 50%;
+    animation: recBlink 1s ease infinite;
+}
+
+.rolling-text {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: white;
+    letter-spacing: 0.1em;
+}
+
+/* ============================================
+   FILM GRAIN OVERLAY ENHANCED
+   ============================================ */
+.grain-overlay {
+    animation: grainMove 0.5s steps(10) infinite;
+}
+
+@keyframes grainMove {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-1%, -1%); }
+    20% { transform: translate(1%, 1%); }
+    30% { transform: translate(-1%, 1%); }
+    40% { transform: translate(1%, -1%); }
+    50% { transform: translate(-1%, 0); }
+    60% { transform: translate(1%, 0); }
+    70% { transform: translate(0, 1%); }
+    80% { transform: translate(0, -1%); }
+    90% { transform: translate(1%, 1%); }
+}
+
+/* ============================================
+   CLAPPERBOARD ANIMATION
+   ============================================ */
+.clapperboard {
+    position: relative;
+    width: 60px;
+    height: 50px;
+    margin: var(--space-md) auto;
+}
+
+.clapper-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--color-accent),
+        var(--color-accent) 5px,
+        #000 5px,
+        #000 10px
+    );
+    transform-origin: left bottom;
+    animation: clapperSnap 2s ease-in-out infinite;
+}
+
+.clapper-bottom {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 100%;
+    height: 38px;
+    background: #222;
+    border: 2px solid var(--color-accent);
+}
+
+@keyframes clapperSnap {
+    0%, 90%, 100% { transform: rotate(0deg); }
+    5% { transform: rotate(-30deg); }
+    10% { transform: rotate(0deg); }
+}
+
+/* Mobile responsive for film animations */
+@media (max-width: 768px) {
+    .film-recording-animation {
+        display: none;
+    }
+    
+    .premium-records-badge {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .pr-initials {
+        font-size: 1.5rem;
+    }
+    
+    .pr-script {
+        font-size: 0.5rem;
+    }
+    
+    .camera-rolling {
+        display: none;
+    }
+}

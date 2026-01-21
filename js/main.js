@@ -382,6 +382,84 @@ document.addEventListener('visibilitychange', () => {
 });
 
 /* ============================================
+   LIGHTBOX GALLERY
+   ============================================ */
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    if (!lightbox || galleryItems.length === 0) return;
+    
+    // Open lightbox on gallery item click
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            const caption = item.querySelector('.gallery-caption');
+            
+            if (img) {
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt || '';
+                lightboxCaption.textContent = caption ? caption.textContent : '';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Close lightbox
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+    
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
+
+// Initialize lightbox when DOM is ready
+document.addEventListener('DOMContentLoaded', initLightbox);
+
+/* ============================================
+   MUSIC VIDEO HOVER EFFECTS
+   ============================================ */
+function initMusicVideos() {
+    const mvCards = document.querySelectorAll('.mv-card');
+    
+    mvCards.forEach(card => {
+        const link = card.querySelector('a');
+        
+        if (link) {
+            card.addEventListener('click', (e) => {
+                // Allow the link to work naturally
+                if (e.target.tagName !== 'A' && !e.target.closest('a')) {
+                    link.click();
+                }
+            });
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initMusicVideos);
+
+/* ============================================
    EXPORT FOR GLOBAL USE
    ============================================ */
 window.PhyoeMain = {

@@ -1,0 +1,673 @@
+/* ============================================
+   PHYOE DHANA - Advanced Animations
+   ============================================ */
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger delays for children */
+.stagger-children > *:nth-child(1) { transition-delay: 0s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.4s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.5s; }
+
+/* ============================================
+   TEXT ANIMATIONS
+   ============================================ */
+
+/* Split text animation */
+.split-text {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.split-text .char {
+    display: inline-block;
+    transform: translateY(100%);
+    animation: charReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes charReveal {
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Typewriter effect */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--color-accent);
+    white-space: nowrap;
+    animation: typing 3.5s steps(50, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--color-accent); }
+}
+
+/* Glowing text */
+.glow-text {
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 
+            0 0 5px rgba(201, 162, 39, 0.5),
+            0 0 10px rgba(201, 162, 39, 0.3);
+    }
+    to {
+        text-shadow: 
+            0 0 10px rgba(201, 162, 39, 0.8),
+            0 0 20px rgba(201, 162, 39, 0.5),
+            0 0 30px rgba(201, 162, 39, 0.3);
+    }
+}
+
+/* ============================================
+   BUTTON ANIMATIONS
+   ============================================ */
+
+/* Ripple effect */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-ripple:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Magnetic button effect */
+.btn-magnetic {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shine effect */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg) translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.btn-shine:hover::after {
+    transform: rotate(45deg) translateX(100%);
+}
+
+/* ============================================
+   CARD ANIMATIONS
+   ============================================ */
+
+/* 3D Tilt effect */
+.tilt-card {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.tilt-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Card glow */
+.card-glow {
+    position: relative;
+}
+
+.card-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--color-accent), 
+        transparent, 
+        var(--color-accent)
+    );
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-glow:hover::before {
+    opacity: 1;
+}
+
+/* Card lift */
+.card-lift {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(201, 162, 39, 0.1);
+}
+
+/* ============================================
+   IMAGE ANIMATIONS
+   ============================================ */
+
+/* Parallax effect */
+.parallax-img {
+    transform: translateY(var(--parallax-offset, 0));
+    transition: transform 0.1s linear;
+}
+
+/* Image reveal */
+.img-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    transform-origin: right;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-reveal.active::after {
+    transform: scaleX(0);
+}
+
+/* Ken Burns effect */
+.ken-burns {
+    animation: kenBurns 20s ease infinite alternate;
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.1) translate(-2%, -2%);
+    }
+}
+
+/* ============================================
+   LOADING ANIMATIONS
+   ============================================ */
+
+/* Film strip loader */
+.film-loader {
+    display: flex;
+    gap: 4px;
+}
+
+.film-loader span {
+    width: 10px;
+    height: 30px;
+    background: var(--color-accent);
+    animation: filmLoad 1s ease-in-out infinite;
+}
+
+.film-loader span:nth-child(1) { animation-delay: 0s; }
+.film-loader span:nth-child(2) { animation-delay: 0.1s; }
+.film-loader span:nth-child(3) { animation-delay: 0.2s; }
+.film-loader span:nth-child(4) { animation-delay: 0.3s; }
+.film-loader span:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes filmLoad {
+    0%, 100% {
+        transform: scaleY(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+/* Camera shutter */
+.shutter-loader {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+
+.shutter-loader::before,
+.shutter-loader::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.shutter-loader::before {
+    animation: shutterPulse 1.5s ease-out infinite;
+}
+
+.shutter-loader::after {
+    animation: shutterPulse 1.5s ease-out 0.75s infinite;
+}
+
+@keyframes shutterPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   BACKGROUND ANIMATIONS
+   ============================================ */
+
+/* Gradient animation */
+.animated-gradient {
+    background: linear-gradient(
+        -45deg,
+        var(--color-bg-primary),
+        var(--color-bg-secondary),
+        var(--color-bg-tertiary),
+        var(--color-bg-primary)
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating particles */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: particleFloat 10s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Scan line effect */
+.scan-lines {
+    position: relative;
+    overflow: hidden;
+}
+
+.scan-lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+    animation: scanMove 8s linear infinite;
+}
+
+@keyframes scanMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+}
+
+/* ============================================
+   SPECIAL EFFECTS
+   ============================================ */
+
+/* Glitch effect */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--color-red);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--color-accent);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 31px, 0); }
+    5% { clip: rect(70px, 9999px, 71px, 0); }
+    10% { clip: rect(30px, 9999px, 95px, 0); }
+    15% { clip: rect(5px, 9999px, 14px, 0); }
+    20% { clip: rect(68px, 9999px, 88px, 0); }
+    25% { clip: rect(40px, 9999px, 23px, 0); }
+    30% { clip: rect(15px, 9999px, 100px, 0); }
+    35% { clip: rect(75px, 9999px, 54px, 0); }
+    40% { clip: rect(22px, 9999px, 67px, 0); }
+    45% { clip: rect(90px, 9999px, 12px, 0); }
+    50% { clip: rect(35px, 9999px, 82px, 0); }
+    55% { clip: rect(8px, 9999px, 45px, 0); }
+    60% { clip: rect(55px, 9999px, 27px, 0); }
+    65% { clip: rect(48px, 9999px, 99px, 0); }
+    70% { clip: rect(12px, 9999px, 35px, 0); }
+    75% { clip: rect(62px, 9999px, 78px, 0); }
+    80% { clip: rect(25px, 9999px, 55px, 0); }
+    85% { clip: rect(80px, 9999px, 42px, 0); }
+    90% { clip: rect(18px, 9999px, 88px, 0); }
+    95% { clip: rect(42px, 9999px, 15px, 0); }
+    100% { clip: rect(65px, 9999px, 70px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(65px, 9999px, 70px, 0); }
+    5% { clip: rect(18px, 9999px, 88px, 0); }
+    10% { clip: rect(42px, 9999px, 15px, 0); }
+    15% { clip: rect(80px, 9999px, 42px, 0); }
+    20% { clip: rect(25px, 9999px, 55px, 0); }
+    25% { clip: rect(62px, 9999px, 78px, 0); }
+    30% { clip: rect(12px, 9999px, 35px, 0); }
+    35% { clip: rect(48px, 9999px, 99px, 0); }
+    40% { clip: rect(55px, 9999px, 27px, 0); }
+    45% { clip: rect(8px, 9999px, 45px, 0); }
+    50% { clip: rect(35px, 9999px, 82px, 0); }
+    55% { clip: rect(90px, 9999px, 12px, 0); }
+    60% { clip: rect(22px, 9999px, 67px, 0); }
+    65% { clip: rect(75px, 9999px, 54px, 0); }
+    70% { clip: rect(15px, 9999px, 100px, 0); }
+    75% { clip: rect(40px, 9999px, 23px, 0); }
+    80% { clip: rect(68px, 9999px, 88px, 0); }
+    85% { clip: rect(5px, 9999px, 14px, 0); }
+    90% { clip: rect(30px, 9999px, 95px, 0); }
+    95% { clip: rect(70px, 9999px, 71px, 0); }
+    100% { clip: rect(10px, 9999px, 31px, 0); }
+}
+
+/* VHS effect */
+.vhs-effect {
+    position: relative;
+}
+
+.vhs-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(
+            transparent 0%,
+            rgba(255, 255, 255, 0.02) 50%,
+            transparent 100%
+        );
+    animation: vhsScan 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes vhsScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+/* Underline animation */
+.hover-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* Scale up */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Rotate */
+.hover-rotate {
+    transition: transform 0.5s ease;
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+/* Color shift */
+.hover-color-shift {
+    transition: filter 0.3s ease;
+}
+
+.hover-color-shift:hover {
+    filter: hue-rotate(30deg);
+}
+
+/* ============================================
+   PAGE TRANSITIONS
+   ============================================ */
+
+/* Fade in up */
+.page-transition {
+    animation: pageIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Curtain reveal */
+.curtain-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.curtain-reveal::before,
+.curtain-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--color-bg-primary);
+    z-index: 10;
+    animation: curtainOpen 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.curtain-reveal::before {
+    left: 0;
+    transform-origin: left;
+}
+
+.curtain-reveal::after {
+    right: 0;
+    transform-origin: right;
+}
+
+@keyframes curtainOpen {
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* ============================================
+   MEDIA QUERY FOR REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .typewriter {
+        animation: none;
+        border-right: none;
+    }
+    
+    .parallax-img {
+        transform: none;
+    }
+    
+    .glitch::before,
+    .glitch::after {
+        display: none;
+    }
+}

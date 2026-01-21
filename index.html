@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phyoe Dhana | Documentary Filmmaker</title>
+    <meta name="description" content="Phyoe Dhana - Myanmar Documentary Filmmaker in Exile. Capturing truth, resistance, and resilience through the lens.">
+    <meta name="keywords" content="Phyoe Dhana, Documentary, Filmmaker, Myanmar, Burma, Exile, Human Rights, Documentary Film">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Phyoe Dhana | Documentary Filmmaker">
+    <meta property="og:description" content="Myanmar Documentary Filmmaker in Exile - Capturing truth, resistance, and resilience through the lens.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="film-reel">
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+            </div>
+            <p class="preloader-text">Loading Stories...</p>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <span class="logo-text">PD</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#works" class="nav-link">Works</a>
+            <a href="#ongoing" class="nav-link">Current Project</a>
+            <a href="#support" class="nav-link support-link">Support</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="grain-overlay"></div>
+            <div class="gradient-overlay"></div>
+            <div class="film-strip film-strip-left"></div>
+            <div class="film-strip film-strip-right"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-subtitle reveal-text">
+                <span class="line"></span>
+                <span>Documentary Filmmaker</span>
+                <span class="line"></span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line">
+                    <span class="word" data-delay="0">Phyoe</span>
+                </span>
+                <span class="title-line">
+                    <span class="word" data-delay="0.1">Dhana</span>
+                </span>
+            </h1>
+            
+            <p class="hero-tagline typewriter">
+                "Capturing truth in the shadows of resistance"
+            </p>
+            
+            <div class="hero-cta">
+                <a href="#works" class="btn btn-primary">
+                    <span class="btn-text">Explore Works</span>
+                    <span class="btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+                <a href="#about" class="btn btn-ghost">
+                    <span class="btn-text">My Story</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">
+                    <span class="title-accent">The</span> Filmmaker
+                </h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image-wrapper">
+                    <div class="image-frame">
+                        <div class="frame-corner top-left"></div>
+                        <div class="frame-corner top-right"></div>
+                        <div class="frame-corner bottom-left"></div>
+                        <div class="frame-corner bottom-right"></div>
+                        <div class="about-image">
+                            <div class="image-placeholder">
+                                <svg viewBox="0 0 100 100" class="camera-icon">
+                                    <circle cx="50" cy="45" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="25" y="30" width="50" height="35" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="40" y="20" width="20" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="50" cy="45" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-badge">
+                        <span class="badge-text">Myanmar<br>Filmmaker<br>in Exile</span>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <div class="quote-block">
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+                        </svg>
+                        <p class="quote">
+                            In the face of oppression, stories become our most powerful weapon. 
+                            Every frame I capture is a testament to the resilience of my people—
+                            those who refuse to be silenced.
+                        </p>
+                    </div>
+                    
+                    <p class="about-description">
+                        As a <strong>documentary filmmaker from Myanmar</strong>, I document the untold stories 
+                        of resistance, hope, and human dignity. Working from exile, I continue to shine 
+                        light on the struggles of ordinary people caught in extraordinary circumstances—
+                        from the aftermath of natural disasters to the ongoing fight for freedom and justice.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Documentary Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Years of Filmmaking</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Stories to Tell</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-bg-text" aria-hidden="true">TRUTH</div>
+    </section>
+
+    <!-- Works Section -->
+    <section class="works" id="works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">
+                    <span class="title-accent">Previous</span> Works
+                </h2>
+            </div>
+            
+            <div class="works-grid">
+                <!-- Project 1 -->
+                <article class="work-card" data-year="2020">
+                    <div class="work-card-inner">
+                        <div class="work-visual">
+                            <div class="work-thumbnail">
+                                <div class="thumbnail-overlay">
+                                    <span class="play-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="5,3 19,12 5,21"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="thumbnail-placeholder covid-project">
+                                    <div class="visual-element">
+                                        <span class="year-display">2020</span>
+                                        <div class="abstract-shapes">
+                                            <div class="shape shape-1"></div>
+                                            <div class="shape shape-2"></div>
+                                            <div class="shape shape-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="work-year">
+                                <span>2020</span>
+                            </div>
+                        </div>
+                        
+                        <div class="work-info">
+                            <div class="work-meta">
+                                <span class="work-type">Documentary Series</span>
+                                <span class="work-parts">5 Parts</span>
+                            </div>
+                            <h3 class="work-title">COVID-19 and the Working Class: Post-Nargis Yangon</h3>
+                            <p class="work-description">
+                                A five-part documentary series focusing on the lives of five families residing 
+                                in the slum areas of Yangon, detailing the intertwined impact of COVID-19 and 
+                                the aftermath of Cyclone Nargis.
+                            </p>
+                            <div class="work-tags">
+                                <span class="tag">Yangon</span>
+                                <span class="tag">COVID-19</span>
+                                <span class="tag">Cyclone Nargis</span>
+                                <span class="tag">Working Class</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project 2 -->
+                <article class="work-card" data-year="2023">
+                    <div class="work-card-inner">
+                        <div class="work-visual">
+                            <div class="work-thumbnail">
+                                <div class="thumbnail-overlay">
+                                    <span class="play-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="5,3 19,12 5,21"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="thumbnail-placeholder dream-project">
+                                    <div class="visual-element">
+                                        <span class="year-display">2023</span>
+                                        <div class="abstract-shapes">
+                                            <div class="shape shape-1"></div>
+                                            <div class="shape shape-2"></div>
+                                            <div class="shape shape-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="work-year">
+                                <span>2023</span>
+                            </div>
+                        </div>
+                        
+                        <div class="work-info">
+                            <div class="work-meta">
+                                <span class="work-type">Documentary Film</span>
+                                <span class="work-parts">Feature</span>
+                            </div>
+                            <h3 class="work-title">The Shattered Dream</h3>
+                            <p class="work-description">
+                                A film chronicling the story of Ko Saw Tun and Ma Thin Zar's family, who took 
+                                refuge in the Thailand/Myanmar (Burma) border region after their hometown was 
+                                attacked by the State Administration Council (SAC).
+                            </p>
+                            <div class="work-tags">
+                                <span class="tag">Refugees</span>
+                                <span class="tag">Border Region</span>
+                                <span class="tag">SAC</span>
+                                <span class="tag">Family</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+        <div class="works-bg-element">
+            <svg viewBox="0 0 200 200" class="film-reel-bg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Ongoing Project Section -->
+    <section class="ongoing" id="ongoing">
+        <div class="ongoing-bg">
+            <div class="noise-overlay"></div>
+            <div class="lines-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-number">03</span>
+                <h2 class="section-title">
+                    <span class="title-accent">Ongoing</span> Project
+                </h2>
+            </div>
+            
+            <div class="ongoing-content">
+                <div class="ongoing-badge">
+                    <span class="pulse"></span>
+                    <span class="badge-label">In Production</span>
+                </div>
+                
+                <h3 class="ongoing-title">Behind the Civil War</h3>
+                
+                <div class="ongoing-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Type</span>
+                        <span class="meta-value">Documentary Series</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Target Area</span>
+                        <span class="meta-value">Myanmar (Burma)</span>
+                    </div>
+                </div>
+                
+                <div class="ongoing-synopsis">
+                    <h4>Synopsis</h4>
+                    <p>
+                        This series explores the story about <em>love between the resilience of local people 
+                        and the revolutionary force</em> striving for Justice. It's a testament to the 
+                        unbreakable spirit of those who fight for freedom, documenting their struggles, 
+                        hopes, and unwavering determination in the face of adversity.
+                    </p>
+                </div>
+                
+                <div class="ongoing-note">
+                    <div class="note-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                    </div>
+                    <p>
+                        This project has no grant or support from other organizations. 
+                        Equipment support provided by <strong>Docu Athan</strong>.
+                    </p>
+                </div>
+                
+                <div class="ongoing-visual">
+                    <div class="camera-viewfinder">
+                        <div class="viewfinder-corner tl"></div>
+                        <div class="viewfinder-corner tr"></div>
+                        <div class="viewfinder-corner bl"></div>
+                        <div class="viewfinder-corner br"></div>
+                        <div class="viewfinder-center">
+                            <div class="recording-dot"></div>
+                            <span>REC</span>
+                        </div>
+                        <div class="viewfinder-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support" id="support">
+        <div class="container">
+            <div class="support-content">
+                <div class="support-text">
+                    <span class="support-label">Make a Difference</span>
+                    <h2 class="support-title">Support Independent Filmmaking</h2>
+                    <p class="support-description">
+                        Every story deserves to be told. Your support helps bring untold narratives 
+                        of resilience, hope, and resistance to the world. Together, we can ensure 
+                        these voices are heard.
+                    </p>
+                    
+                    <div class="support-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <span>Fund Documentary Production</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="10,8 16,12 10,16" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <span>Enable Story Distribution</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                            </div>
+                            <span>Support Filmmaker Safety</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="support-cta">
+                    <div class="cta-card">
+                        <div class="cta-visual">
+                            <div class="heart-animation">
+                                <svg viewBox="0 0 100 100" class="heart-svg">
+                                    <path class="heart-path" d="M50 88C50 88 10 60 10 35C10 20 22 10 35 10C42 10 48 14 50 20C52 14 58 10 65 10C78 10 90 20 90 35C90 60 50 88 50 88Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Support via Docu Athan</h3>
+                        <p>Your contribution directly supports documentary filmmaking and storytelling.</p>
+                        <a href="https://www.docuathan.com/en/phyoe-dhana" target="_blank" rel="noopener noreferrer" class="btn btn-support">
+                            <span class="btn-text">Support Now</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="support-bg-pattern"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Phyoe Dhana</span>
+                    <p class="footer-tagline">Documentary Filmmaker | Myanmar in Exile</p>
+                </div>
+                
+                <div class="footer-quote">
+                    <p>"The camera is a tool of truth—it sees what we choose to show the world."</p>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p class="copyright">© 2024 Phyoe Dhana. All stories deserve to be told.</p>
+                    <p class="equipment-credit">Equipment support by <a href="https://www.docuathan.com" target="_blank" rel="noopener noreferrer">Docu Athan</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-film-strip"></div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

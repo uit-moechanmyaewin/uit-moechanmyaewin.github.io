@@ -2551,3 +2551,250 @@ img {
         scroll-behavior: auto;
     }
 }
+
+/* ============================================
+   ENHANCED FILMMAKER VISUAL EFFECTS
+   ============================================ */
+
+/* Camera Flash */
+.camera-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9998;
+}
+
+.camera-flash.active {
+    animation: flashBurst 0.5s ease forwards;
+}
+
+@keyframes flashBurst {
+    0% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+/* Section Visibility Animations */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero section should be visible immediately */
+.hero {
+    opacity: 1;
+    transform: none;
+}
+
+/* Image Reveal Effect */
+.about-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    transform-origin: right;
+    transform: scaleX(1);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-image.image-revealed::after {
+    transform: scaleX(0);
+}
+
+/* Quote Animation */
+.quote {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.quote.quote-visible,
+.quote-block:hover .quote {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Hero Badge */
+.hero-badge.documentary-badge {
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease 1s forwards;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Viewfinder Overlay Responsive */
+@media (max-width: 768px) {
+    .viewfinder-overlay {
+        display: none;
+    }
+    
+    .letterbox {
+        height: 5vh;
+    }
+    
+    .letterbox-top,
+    .letterbox-bottom {
+        animation: none;
+        height: 5vh;
+    }
+    
+    .vf-rec,
+    .vf-timecode {
+        display: none;
+    }
+}
+
+/* Film Border Effects */
+.film-border-top,
+.film-border-bottom {
+    opacity: 0.5;
+}
+
+/* Enhanced Profile Photo Container */
+.about-image img.profile-photo {
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.about-image:hover img.profile-photo {
+    transform: scale(1.03);
+    filter: brightness(1.1) contrast(1.05);
+}
+
+/* Floating Elements Animation Enhancement */
+.floating-badge {
+    z-index: 10;
+}
+
+.floating-film-strip {
+    z-index: 1;
+}
+
+/* Enhanced Work Cards */
+.work-card {
+    position: relative;
+}
+
+.work-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(201, 162, 39, 0.05) 50%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.work-card:hover::before {
+    opacity: 1;
+}
+
+/* Documentary Style Timeline Enhancement */
+.timeline-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+.timeline-item strong {
+    color: var(--color-accent);
+}
+
+.timeline-item.highlight {
+    background: rgba(201, 162, 39, 0.05);
+    padding: var(--space-md);
+    margin-left: calc(-1 * var(--space-md));
+    border-radius: var(--radius-md);
+}
+
+/* Stat Items Enhancement */
+.about-stats {
+    margin-top: var(--space-xl);
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+}
+
+/* Hero Film Decoration Mobile */
+@media (max-width: 768px) {
+    .hero-film-decoration {
+        display: none;
+    }
+    
+    .documentary-badge {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Cinematic Frame Enhancement */
+.cinematic-frame {
+    background: var(--color-bg-tertiary);
+}
+
+/* Ensure profile image fills container */
+.about-image {
+    background: var(--color-bg-tertiary);
+}
+
+.about-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Loading state for images */
+.about-image img[src=""] {
+    background: linear-gradient(
+        135deg,
+        var(--color-bg-secondary) 0%,
+        var(--color-bg-tertiary) 50%,
+        var(--color-bg-secondary) 100%
+    );
+    background-size: 200% 200%;
+    animation: shimmerLoad 1.5s ease infinite;
+}
+
+@keyframes shimmerLoad {
+    0% { background-position: -100% -100%; }
+    100% { background-position: 200% 200%; }
+}

@@ -7,18 +7,27 @@
     <meta name="description" content="Phyoe Dhana - Myanmar Documentary Filmmaker in Exile. Former student activist, founder of Premium Records. Capturing truth, resistance, and resilience through the lens.">
     <meta name="keywords" content="Phyoe Dhana, Documentary, Filmmaker, Myanmar, Burma, Exile, Human Rights, Documentary Film, Music Video, Premium Records, Spring Revolution">
     
-    <!-- Open Graph -->
+    <!-- Open Graph (Facebook, Messenger, Telegram) -->
     <meta property="og:title" content="Phyoe Dhana | Documentary Filmmaker & Music Video Director">
-    <meta property="og:description" content="Myanmar Documentary Filmmaker in Exile - Capturing truth, resistance, and resilience through the lens.">
-    <meta property="og:image" content="images/profile-portrait.jpg">
+    <meta property="og:description" content="Myanmar Documentary Filmmaker in Exile - Capturing truth, resistance, and resilience through the lens. Founder of Premium Records.">
+    <meta property="og:image" content="https://phyoedhana.me/images/profile-portrait.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Phyoe Dhana - Documentary Filmmaker">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://phyoedhana.me">
+    <meta property="og:site_name" content="Phyoe Dhana Portfolio">
+    <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Phyoe Dhana | Documentary Filmmaker">
     <meta name="twitter:description" content="Myanmar Documentary Filmmaker in Exile - Founder of Premium Records">
-    <meta name="twitter:image" content="images/profile-portrait.jpg">
+    <meta name="twitter:image" content="https://phyoedhana.me/images/profile-portrait.jpg">
+    
+    <!-- Telegram specific -->
+    <meta name="telegram:channel" content="@phyoedhana">
+    <link rel="image_src" href="https://phyoedhana.me/images/profile-portrait.jpg">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,6 +87,27 @@
             <div class="gradient-overlay"></div>
             <div class="film-strip film-strip-left"></div>
             <div class="film-strip film-strip-right"></div>
+            <div class="scanline-effect"></div>
+            <div class="vignette-overlay"></div>
+            <div class="lens-flare"></div>
+        </div>
+        
+        <!-- Cinematic Letterbox -->
+        <div class="letterbox letterbox-top"></div>
+        <div class="letterbox letterbox-bottom"></div>
+        
+        <!-- Camera Viewfinder Overlay -->
+        <div class="viewfinder-overlay">
+            <div class="vf-corner vf-tl"></div>
+            <div class="vf-corner vf-tr"></div>
+            <div class="vf-corner vf-bl"></div>
+            <div class="vf-corner vf-br"></div>
+            <div class="vf-crosshair"></div>
+            <div class="vf-rec">
+                <span class="rec-dot"></span>
+                <span class="rec-text">REC</span>
+            </div>
+            <div class="vf-timecode">00:00:00:00</div>
         </div>
         
         <div class="hero-content">
@@ -100,9 +130,23 @@
                 "Capturing truth in the shadows of resistance"
             </p>
             
-            <div class="hero-badge">
-                <span>Founder of</span>
-                <strong>Premium Records</strong>
+            <div class="hero-badge documentary-badge">
+                <div class="badge-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                    </svg>
+                </div>
+                <div class="badge-content">
+                    <span>Founder of</span>
+                    <strong>Premium Records</strong>
+                </div>
+            </div>
+            
+            <!-- Film Strip Decoration -->
+            <div class="hero-film-decoration">
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
+                <div class="film-cell"></div>
             </div>
             
             <div class="hero-cta">
@@ -159,18 +203,28 @@
             
             <div class="about-content">
                 <div class="about-image-wrapper">
-                    <div class="image-frame">
+                    <div class="image-frame cinematic-frame">
                         <div class="frame-corner top-left"></div>
                         <div class="frame-corner top-right"></div>
                         <div class="frame-corner bottom-left"></div>
                         <div class="frame-corner bottom-right"></div>
+                        <div class="film-border-top"></div>
+                        <div class="film-border-bottom"></div>
                         <div class="about-image">
-                            <img src="images/profile-bagan.jpg" alt="Phyoe Dhana at Bagan, Myanmar" class="profile-photo">
+                            <img src="images/profile-portrait.jpg" alt="Phyoe Dhana - Documentary Filmmaker" class="profile-photo">
+                            <div class="image-overlay-effect"></div>
+                        </div>
+                        <div class="viewfinder-marks">
+                            <span class="mark mark-top"></span>
+                            <span class="mark mark-bottom"></span>
+                            <span class="mark mark-left"></span>
+                            <span class="mark mark-right"></span>
                         </div>
                     </div>
-                    <div class="floating-badge">
+                    <div class="floating-badge pulse-glow">
                         <span class="badge-text">Born<br>1994<br>Myanmar</span>
                     </div>
+                    <div class="floating-film-strip"></div>
                 </div>
                 
                 <div class="about-text">

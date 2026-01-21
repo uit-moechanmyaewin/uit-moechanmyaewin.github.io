@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initLazyLoading();
     initFormValidation();
+    initTimecode();
+    initCameraFlash();
+    initFilmmakerEffects();
 });
 
 /* ============================================
@@ -468,3 +471,155 @@ window.PhyoeMain = {
     isInViewport,
     addClassOnScroll
 };
+
+/* ============================================
+   TIMECODE ANIMATION
+   ============================================ */
+function initTimecode() {
+    const timecodeEl = document.querySelector('.vf-timecode');
+    if (!timecodeEl) return;
+    
+    let frame = 0;
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+    
+    function updateTimecode() {
+        frame++;
+        if (frame >= 24) {
+            frame = 0;
+            seconds++;
+        }
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+        }
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+        }
+        
+        const tc = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(frame).padStart(2, '0')}`;
+        timecodeEl.textContent = tc;
+    }
+    
+    setInterval(updateTimecode, 1000 / 24); // 24fps
+}
+
+/* ============================================
+   CAMERA FLASH EFFECT
+   ============================================ */
+function initCameraFlash() {
+    // Create flash element
+    const flash = document.createElement('div');
+    flash.className = 'camera-flash';
+    document.body.appendChild(flash);
+    
+    // Trigger flash on certain interactions
+    const triggerElements = document.querySelectorAll('.work-card, .stat-item');
+    
+    triggerElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (Math.random() < 0.1) { // 10% chance
+                flash.classList.add('active');
+                setTimeout(() => flash.classList.remove('active'), 500);
+            }
+        });
+    });
+}
+
+/* ============================================
+   FILMMAKER EFFECTS
+   ============================================ */
+function initFilmmakerEffects() {
+    // Parallax on scroll for hero
+    const heroImage = document.querySelector('.hero-image-bg');
+    if (heroImage) {
+        window.addEventListener('scroll', throttle(() => {
+            const scrolled = window.pageYOffset;
+            heroImage.style.transform = `scale(${1 + scrolled * 0.0002}) translateY(${scrolled * 0.3}px)`;
+        }, 16));
+    }
+    
+    // Film grain intensity based on scroll
+    const grainOverlay = document.querySelector('.grain-overlay');
+    if (grainOverlay) {
+        window.addEventListener('scroll', throttle(() => {
+            const scrolled = window.pageYOffset;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrolled / maxScroll;
+            grainOverlay.style.opacity = 0.03 + (progress * 0.02);
+        }, 50));
+    }
+    
+    // Animate stats numbers
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const finalText = el.textContent;
+                const finalNum = parseInt(finalText);
+                
+                if (!isNaN(finalNum) && finalNum > 0) {
+                    let current = 0;
+                    const increment = finalNum / 30;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= finalNum) {
+                            el.textContent = finalText;
+                            clearInterval(timer);
+                        } else {
+                            el.textContent = Math.floor(current) + '+';
+                        }
+                    }, 50);
+                }
+                statsObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(stat => statsObserver.observe(stat));
+    
+    // Typewriter effect for quote
+    const quote = document.querySelector('.quote');
+    if (quote) {
+        const quoteObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    quote.classList.add('quote-visible');
+                    quoteObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        quoteObserver.observe(quote);
+    }
+    
+    // Add cinematic entrance for sections
+    const sections = document.querySelectorAll('section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    sections.forEach(section => sectionObserver.observe(section));
+    
+    // Documentary-style image reveal
+    const aboutImage = document.querySelector('.about-image img');
+    if (aboutImage) {
+        const imgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.parentElement.classList.add('image-revealed');
+                    imgObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        imgObserver.observe(aboutImage);
+    }
+}

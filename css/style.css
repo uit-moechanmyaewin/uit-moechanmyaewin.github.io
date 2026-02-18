@@ -1092,6 +1092,44 @@ img { max-width: 100%; height: auto; display: block; }
 .covid-project .shape-2 { width: 50px; height: 50px; border: 2px solid var(--color-accent); bottom: 30%; right: 25%; animation: float 6s ease-in-out infinite reverse; }
 .covid-project .shape-3 { width: 35px; height: 35px; background: rgba(255, 255, 255, 0.15); top: 50%; right: 40%; animation: float 7s ease-in-out infinite; }
 
+/* Video embed in work cards */
+.work-thumbnail-video {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+.work-thumbnail-video iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+}
+
+.work-watch-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: var(--transition-base);
+    padding: var(--space-xs) 0;
+}
+.work-watch-link svg {
+    width: 16px; height: 16px;
+    transition: var(--transition-base);
+}
+.work-watch-link:hover {
+    color: var(--color-accent-light);
+}
+.work-watch-link:hover svg {
+    transform: translateX(3px);
+}
+
 .thumbnail-overlay {
     position: absolute;
     top: 0; left: 0;

@@ -7,7 +7,7 @@
     <meta name="description" content="Phyoe Dhana - Myanmar Documentary Filmmaker in Exile. Former student activist, founder of Premium Records. Capturing truth, resistance, and resilience through the lens.">
     <meta name="keywords" content="Phyoe Dhana, Documentary, Filmmaker, Myanmar, Burma, Exile, Human Rights, Documentary Film, Music Video, Premium Records, Spring Revolution">
     
-    <!-- Open Graph (Facebook, Messenger, Telegram) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Phyoe Dhana | Documentary Filmmaker & Music Video Director">
     <meta property="og:description" content="Myanmar Documentary Filmmaker in Exile - Capturing truth, resistance, and resilience through the lens. Founder of Premium Records.">
     <meta property="og:image" content="https://phyoedhana.me/images/profile-portrait.jpg">
@@ -32,25 +32,33 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- Preloader -->
+    <!-- Cinematic Preloader -->
     <div class="preloader" id="preloader">
         <div class="preloader-content">
-            <div class="film-reel">
-                <div class="reel-hole"></div>
-                <div class="reel-hole"></div>
-                <div class="reel-hole"></div>
-                <div class="reel-hole"></div>
-                <div class="reel-hole"></div>
-                <div class="reel-hole"></div>
+            <div class="preloader-countdown">
+                <div class="countdown-circle">
+                    <svg viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="54" class="countdown-track"/>
+                        <circle cx="60" cy="60" r="54" class="countdown-ring"/>
+                        <line x1="60" y1="8" x2="60" y2="60" class="countdown-hand"/>
+                    </svg>
+                    <span class="countdown-number" id="countdownNum">3</span>
+                </div>
+                <div class="countdown-crosshair">
+                    <span></span><span></span><span></span><span></span>
+                </div>
             </div>
-            <p class="preloader-text">Loading Stories...</p>
+            <div class="preloader-bar">
+                <div class="preloader-bar-fill"></div>
+            </div>
+            <p class="preloader-text">LOADING REEL<span class="dot-anim">...</span></p>
         </div>
     </div>
 
@@ -58,10 +66,17 @@
     <div class="custom-cursor"></div>
     <div class="cursor-follower"></div>
 
+    <!-- Film Grain Global Overlay -->
+    <div class="global-grain" aria-hidden="true"></div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-logo">
-            <span class="logo-text">PD</span>
+            <a href="#home" class="logo-link">
+                <span class="logo-mark">PD</span>
+                <span class="logo-divider"></span>
+                <span class="logo-tagline">FILMMAKER</span>
+            </a>
         </div>
         <div class="nav-menu" id="nav-menu">
             <a href="#home" class="nav-link active">Home</a>
@@ -90,13 +105,14 @@
             <div class="scanline-effect"></div>
             <div class="vignette-overlay"></div>
             <div class="lens-flare"></div>
+            <div class="hero-particles" id="heroParticles"></div>
         </div>
         
         <!-- Cinematic Letterbox -->
         <div class="letterbox letterbox-top"></div>
         <div class="letterbox letterbox-bottom"></div>
         
-        <!-- Camera Viewfinder Overlay -->
+        <!-- Camera Viewfinder -->
         <div class="viewfinder-overlay">
             <div class="vf-corner vf-tl"></div>
             <div class="vf-corner vf-tr"></div>
@@ -108,6 +124,7 @@
                 <span class="rec-text">REC</span>
             </div>
             <div class="vf-timecode">00:00:00:00</div>
+            <div class="vf-focal">f/2.8 · 24mm · ISO 800</div>
         </div>
         
         <div class="hero-content">
@@ -117,7 +134,7 @@
                 <span class="line"></span>
             </div>
             
-            <h1 class="hero-title">
+            <h1 class="hero-title glitch-hover" data-text="Phyoe Dhana">
                 <span class="title-line">
                     <span class="word" data-delay="0">Phyoe</span>
                 </span>
@@ -141,20 +158,14 @@
                 </div>
             </div>
             
-            <!-- Film Recording Animation -->
             <div class="film-recording-animation">
                 <div class="film-reel-container">
-                    <div class="film-reel-mini reel-left">
-                        <div class="reel-center"></div>
-                    </div>
+                    <div class="film-reel-mini reel-left"><div class="reel-center"></div></div>
                     <div class="film-tape"></div>
-                    <div class="film-reel-mini reel-right">
-                        <div class="reel-center"></div>
-                    </div>
+                    <div class="film-reel-mini reel-right"><div class="reel-center"></div></div>
                 </div>
             </div>
             
-            <!-- Film Strip Decoration -->
             <div class="hero-film-decoration">
                 <div class="film-cell"></div>
                 <div class="film-cell"></div>
@@ -164,7 +175,7 @@
             </div>
             
             <div class="hero-cta">
-                <a href="#works" class="btn btn-primary">
+                <a href="#works" class="btn btn-primary btn-shine">
                     <span class="btn-text">Explore Works</span>
                     <span class="btn-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -177,39 +188,45 @@
                 </a>
             </div>
             
-            <!-- Social Links -->
             <div class="hero-social">
                 <a href="https://www.facebook.com/Phyo3Dhana" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </a>
                 <a href="https://www.instagram.com/phyoe_dhana/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
                 <a href="https://www.youtube.com/playlist?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 </a>
             </div>
         </div>
         
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
             </div>
             <span>Scroll to explore</span>
+            <div class="scroll-arrows">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
         </div>
     </section>
+
+    <!-- Film Strip Divider -->
+    <div class="section-divider">
+        <div class="film-strip-horizontal"></div>
+    </div>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">01</span>
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span class="section-number">01</span>
+                    <span class="tag-label">CHAPTER ONE</span>
+                </div>
                 <h2 class="section-title">
                     <span class="title-accent">The</span> Filmmaker
                 </h2>
@@ -234,6 +251,7 @@
                             <span class="mark mark-left"></span>
                             <span class="mark mark-right"></span>
                         </div>
+                        <div class="frame-label">SHOT ON — 35mm</div>
                     </div>
                     <div class="floating-badge pulse-glow">
                         <span class="badge-text">Born<br>1994<br>Myanmar</span>
@@ -281,11 +299,11 @@
                     
                     <div class="about-stats">
                         <div class="stat-item">
-                            <span class="stat-number">18+</span>
+                            <span class="stat-number" data-target="18">18+</span>
                             <span class="stat-label">Music Videos</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3+</span>
+                            <span class="stat-number" data-target="3">3+</span>
                             <span class="stat-label">Documentaries</span>
                         </div>
                         <div class="stat-item">
@@ -300,28 +318,30 @@
         <div class="about-bg-text" aria-hidden="true">TRUTH</div>
     </section>
 
+    <!-- Film Strip Divider -->
+    <div class="section-divider"><div class="film-strip-horizontal"></div></div>
+
     <!-- Documentary Works Section -->
     <section class="works" id="works">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">02</span>
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span class="section-number">02</span>
+                    <span class="tag-label">FILMOGRAPHY</span>
+                </div>
                 <h2 class="section-title">
                     <span class="title-accent">Documentary</span> Works
                 </h2>
             </div>
             
             <div class="works-grid">
-                <!-- Project 1 -->
                 <article class="work-card" data-year="2020">
                     <div class="work-card-inner">
                         <div class="work-visual">
                             <div class="work-thumbnail">
                                 <div class="thumbnail-overlay">
-                                    <span class="play-icon">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <polygon points="5,3 19,12 5,21"/>
-                                        </svg>
-                                    </span>
+                                    <span class="play-icon"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
                                 </div>
                                 <div class="thumbnail-placeholder covid-project">
                                     <div class="visual-element">
@@ -334,22 +354,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="work-year">
-                                <span>2020</span>
-                            </div>
+                            <div class="work-year"><span>2020</span></div>
                         </div>
-                        
                         <div class="work-info">
                             <div class="work-meta">
                                 <span class="work-type">Documentary Series</span>
                                 <span class="work-parts">5 Parts</span>
                             </div>
                             <h3 class="work-title">COVID-19 and the Working Class: Post-Nargis Yangon</h3>
-                            <p class="work-description">
-                                A five-part documentary series focusing on the lives of five families residing 
-                                in the slum areas of Yangon, detailing the intertwined impact of COVID-19 and 
-                                the aftermath of Cyclone Nargis.
-                            </p>
+                            <p class="work-description">A five-part documentary series focusing on the lives of five families residing in the slum areas of Yangon, detailing the intertwined impact of COVID-19 and the aftermath of Cyclone Nargis.</p>
                             <div class="work-tags">
                                 <span class="tag">Yangon</span>
                                 <span class="tag">COVID-19</span>
@@ -360,36 +373,24 @@
                     </div>
                 </article>
                 
-                <!-- Project 2 -->
                 <article class="work-card" data-year="2023">
                     <div class="work-card-inner">
                         <div class="work-visual">
                             <div class="work-thumbnail">
                                 <div class="thumbnail-overlay">
-                                    <span class="play-icon">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <polygon points="5,3 19,12 5,21"/>
-                                        </svg>
-                                    </span>
+                                    <span class="play-icon"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
                                 </div>
                                 <img src="images/shattered-dreams-poster.jpg" alt="The Shattered Dream Documentary" class="thumbnail-image">
                             </div>
-                            <div class="work-year">
-                                <span>2023</span>
-                            </div>
+                            <div class="work-year"><span>2023</span></div>
                         </div>
-                        
                         <div class="work-info">
                             <div class="work-meta">
                                 <span class="work-type">Documentary Film</span>
                                 <span class="work-parts">Feature</span>
                             </div>
                             <h3 class="work-title">The Shattered Dream</h3>
-                            <p class="work-description">
-                                Ko Saw Tun, Ma Thin Zar and their family reached Lay Kay Kaw in 2019 for their 
-                                children's education. They built their house and lived their dreams. When the military 
-                                invaded, they had to flee. A story of hope, displacement, and resilience.
-                            </p>
+                            <p class="work-description">Ko Saw Tun, Ma Thin Zar and their family reached Lay Kay Kaw in 2019 for their children's education. They built their house and lived their dreams. When the military invaded, they had to flee. A story of hope, displacement, and resilience.</p>
                             <div class="work-tags">
                                 <span class="tag">Refugees</span>
                                 <span class="tag">Lay Kay Kaw</span>
@@ -401,14 +402,8 @@
                 </article>
             </div>
         </div>
-        
         <div class="works-bg-element">
-            <svg viewBox="0 0 200 200" class="film-reel-bg">
-                <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5"/>
-                <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5"/>
-                <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.5"/>
-                <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5"/>
-            </svg>
+            <svg viewBox="0 0 200 200" class="film-reel-bg"><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.5"/><circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5"/><circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.5"/><circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5"/></svg>
         </div>
     </section>
 
@@ -416,19 +411,19 @@
     <section class="music-videos" id="music-videos">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">
-                    <span class="title-accent">Music</span> Videos
-                </h2>
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span class="section-number">03</span>
+                    <span class="tag-label">MUSIC DIRECTION</span>
+                </div>
+                <h2 class="section-title"><span class="title-accent">Music</span> Videos</h2>
                 <p class="section-subtitle">18 Music Videos • Revolution Through Art • Premium Records</p>
             </div>
             
-            <!-- Embedded YouTube Videos Grid -->
             <div class="mv-embed-grid">
-                <!-- Spring - Featured -->
                 <div class="mv-embed-card featured-large">
                     <div class="mv-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/3J_mloxH2FE?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="Spring -Not Yet Finished- (Myanmar Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                        <iframe src="https://www.youtube.com/embed/3J_mloxH2FE?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="Spring -Not Yet Finished-" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="mv-embed-info">
                         <span class="mv-label">Featured</span>
@@ -436,11 +431,9 @@
                         <p class="mv-description">Young people who took up arms to resist oppression after the 2021 coup. The "Spring Revolution" continues. Dedicated to those who gave their lives for freedom.</p>
                     </div>
                 </div>
-                
-                <!-- Lay Kay Kaw Paris -->
                 <div class="mv-embed-card">
                     <div class="mv-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/xUidN_b7Prk?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="Lay Kay Kaw Paris - လေးကေ့ကော်ပါရီ [OFFICIAL MUSIC VIDEO]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                        <iframe src="https://www.youtube.com/embed/xUidN_b7Prk?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="Lay Kay Kaw Paris" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="mv-embed-info">
                         <span class="mv-label">Hope</span>
@@ -448,11 +441,9 @@
                         <p class="mv-description">A music video for the city as beautiful as Paris, and for our hope of reconstruction.</p>
                     </div>
                 </div>
-                
-                <!-- The Rebel Riot -->
                 <div class="mv-embed-card">
                     <div class="mv-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/yHz4wH3KTA4?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="The Rebel Riot - ¡A las Barricadas (Punk Version 2025)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                        <iframe src="https://www.youtube.com/embed/yHz4wH3KTA4?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="The Rebel Riot - A las Barricadas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="mv-embed-info">
                         <span class="mv-label">Punk</span>
@@ -460,11 +451,9 @@
                         <p class="mv-description">The Rebel Riot - Punk Version 2025. Revolutionary anthem for the resistance.</p>
                     </div>
                 </div>
-                
-                <!-- နေမဝင်ခင် -->
                 <div class="mv-embed-card">
                     <div class="mv-embed-wrapper">
-                        <iframe src="https://www.youtube.com/embed/GwTMFYgY27M?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="နေမဝင်ခင် နေကွယ်သွားတဲ့နေ့ - စန်းမင်းပိုင်" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                        <iframe src="https://www.youtube.com/embed/GwTMFYgY27M?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="နေမဝင်ခင် နေကွယ်သွားတဲ့နေ့" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="mv-embed-info">
                         <span class="mv-label">Emotional</span>
@@ -472,8 +461,6 @@
                         <p class="mv-description">By စန်းမင်းပိုင် - A heartfelt ballad capturing moments before the darkness.</p>
                     </div>
                 </div>
-                
-                <!-- မိုးမခချစ်သူ -->
                 <div class="mv-embed-card">
                     <div class="mv-embed-wrapper">
                         <iframe src="https://www.youtube.com/embed/ISdHekRNbyc?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" title="မိုးမခချစ်သူ-Naw Friday" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
@@ -486,19 +473,14 @@
                 </div>
             </div>
             
-            <!-- All Music Videos CTA -->
             <div class="mv-cta">
                 <div class="mv-count">
                     <span class="count-number">18</span>
                     <span class="count-label">Music Videos</span>
                 </div>
-                <a href="https://www.youtube.com/playlist?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+                <a href="https://www.youtube.com/playlist?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large btn-shine">
                     <span class="btn-text">Watch Full Playlist on YouTube</span>
-                    <span class="btn-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </span>
+                    <span class="btn-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
                 </a>
             </div>
         </div>
@@ -508,10 +490,12 @@
     <section class="gallery" id="gallery">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title">
-                    <span class="title-accent">Behind</span> the Lens
-                </h2>
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span class="section-number">04</span>
+                    <span class="tag-label">BEHIND THE SCENES</span>
+                </div>
+                <h2 class="section-title"><span class="title-accent">Behind</span> the Lens</h2>
                 <p class="section-subtitle">Moments from the field • Stories in frames</p>
             </div>
             
@@ -520,47 +504,46 @@
                     <img src="images/profile-bagan.jpg" alt="Phyoe Dhana at Bagan" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Bagan, Myanmar</span>
+                        <span class="gallery-expand-icon">⤢</span>
                     </div>
                 </div>
-                
                 <div class="gallery-item" data-caption="On set with gimbal - capturing stories">
                     <img src="images/filming-gimbal.jpg" alt="Phyoe Dhana filming with gimbal" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">On Set</span>
+                        <span class="gallery-expand-icon">⤢</span>
                     </div>
                 </div>
-                
                 <div class="gallery-item" data-caption="With the community - three-finger salute of resistance">
                     <img src="images/community-resistance.jpg" alt="With community showing three-finger salute" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Spring Revolution</span>
+                        <span class="gallery-expand-icon">⤢</span>
                     </div>
                 </div>
-                
                 <div class="gallery-item wide" data-caption="Behind the Civil War - Ongoing Documentary">
                     <img src="images/behind-civil-war.jpg" alt="Behind the Civil War documentary scene" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Behind the Civil War</span>
+                        <span class="gallery-expand-icon">⤢</span>
                     </div>
                 </div>
-                
                 <div class="gallery-item" data-caption="Children of Myanmar - The future generation">
                     <img src="images/children-school.jpg" alt="School children in Myanmar" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Future Generation</span>
+                        <span class="gallery-expand-icon">⤢</span>
                     </div>
                 </div>
-                
                 <div class="gallery-item" data-caption="Connecting with the community">
                     <img src="images/with-children.jpg" alt="Phyoe Dhana with local children" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-caption">Community Connection</span>
+                        <span class="gallery-expand-icon">⤢</span>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Film Strip Decoration -->
         <div class="gallery-film-strip"></div>
     </section>
 
@@ -571,68 +554,37 @@
             <div class="noise-overlay"></div>
             <div class="lines-overlay"></div>
         </div>
-        
         <div class="container">
             <div class="section-header light">
-                <span class="section-number">05</span>
-                <h2 class="section-title">
-                    <span class="title-accent">Ongoing</span> Project
-                </h2>
+                <div class="section-tag">
+                    <span class="tag-line"></span>
+                    <span class="section-number">05</span>
+                    <span class="tag-label">NOW FILMING</span>
+                </div>
+                <h2 class="section-title"><span class="title-accent">Ongoing</span> Project</h2>
             </div>
-            
             <div class="ongoing-content">
-                <div class="ongoing-badge">
-                    <span class="pulse"></span>
-                    <span class="badge-label">In Production</span>
-                </div>
-                
+                <div class="ongoing-badge"><span class="pulse"></span><span class="badge-label">In Production</span></div>
                 <h3 class="ongoing-title">Behind the Civil War</h3>
-                
                 <div class="ongoing-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Type</span>
-                        <span class="meta-value">Documentary Series</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Target Area</span>
-                        <span class="meta-value">Myanmar (Burma)</span>
-                    </div>
+                    <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Documentary Series</span></div>
+                    <div class="meta-item"><span class="meta-label">Target Area</span><span class="meta-value">Myanmar (Burma)</span></div>
                 </div>
-                
                 <div class="ongoing-synopsis">
                     <h4>Synopsis</h4>
-                    <p>
-                        This series explores the story about <em>love between the resilience of local people 
-                        and the revolutionary force</em> striving for Justice. It's a testament to the 
-                        unbreakable spirit of those who fight for freedom, documenting their struggles, 
-                        hopes, and unwavering determination in the face of adversity.
-                    </p>
+                    <p>This series explores the story about <em>love between the resilience of local people and the revolutionary force</em> striving for Justice. It's a testament to the unbreakable spirit of those who fight for freedom, documenting their struggles, hopes, and unwavering determination in the face of adversity.</p>
                 </div>
-                
                 <div class="ongoing-note">
-                    <div class="note-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="8" x2="12" y2="12"/>
-                            <line x1="12" y1="16" x2="12.01" y2="16"/>
-                        </svg>
-                    </div>
-                    <p>
-                        This project has no grant or support from other organizations. 
-                        Equipment support provided by <strong>Docu Athan</strong>.
-                    </p>
+                    <div class="note-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                    <p>This project has no grant or support from other organizations. Equipment support provided by <strong>Docu Athan</strong>.</p>
                 </div>
-                
                 <div class="ongoing-visual">
                     <div class="camera-viewfinder">
                         <div class="viewfinder-corner tl"></div>
                         <div class="viewfinder-corner tr"></div>
                         <div class="viewfinder-corner bl"></div>
                         <div class="viewfinder-corner br"></div>
-                        <div class="viewfinder-center">
-                            <div class="recording-dot"></div>
-                            <span>REC</span>
-                        </div>
+                        <div class="viewfinder-center"><div class="recording-dot"></div><span>REC</span></div>
                         <div class="viewfinder-grid"></div>
                     </div>
                 </div>
@@ -647,12 +599,7 @@
                 <div class="support-text">
                     <span class="support-label">Make a Difference</span>
                     <h2 class="support-title">Support Independent Filmmaking</h2>
-                    <p class="support-description">
-                        Every story deserves to be told. Your support helps bring untold narratives 
-                        of resilience, hope, and resistance to the world. Together, we can ensure 
-                        these voices are heard.
-                    </p>
-                    
+                    <p class="support-description">Every story deserves to be told. Your support helps bring untold narratives of resilience, hope, and resistance to the world. Together, we can ensure these voices are heard.</p>
                     <div class="support-info">
                         <p>The full amount of your donation will be sent to Phyoe Dhana and used for:</p>
                         <ul>
@@ -661,71 +608,31 @@
                             <li>Future documentary projects</li>
                         </ul>
                     </div>
-                    
                     <div class="support-features">
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                                </svg>
-                            </div>
-                            <span>Fund Documentary Production</span>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polygon points="10,8 16,12 10,16" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <span>Enable Story Distribution</span>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                                </svg>
-                            </div>
-                            <span>Support Filmmaker Safety</span>
-                        </div>
+                        <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span>Fund Documentary Production</span></div>
+                        <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor"/></svg></div><span>Enable Story Distribution</span></div>
+                        <div class="feature"><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><span>Support Filmmaker Safety</span></div>
                     </div>
                 </div>
-                
                 <div class="support-cta">
                     <div class="cta-card">
                         <div class="cta-visual">
-                            <div class="heart-animation">
-                                <svg viewBox="0 0 100 100" class="heart-svg">
-                                    <path class="heart-path" d="M50 88C50 88 10 60 10 35C10 20 22 10 35 10C42 10 48 14 50 20C52 14 58 10 65 10C78 10 90 20 90 35C90 60 50 88 50 88Z"/>
-                                </svg>
-                            </div>
+                            <div class="heart-animation"><svg viewBox="0 0 100 100" class="heart-svg"><path class="heart-path" d="M50 88C50 88 10 60 10 35C10 20 22 10 35 10C42 10 48 14 50 20C52 14 58 10 65 10C78 10 90 20 90 35C90 60 50 88 50 88Z"/></svg></div>
                         </div>
                         <h3>Support via Docu Athan</h3>
                         <p>Your contribution directly supports documentary filmmaking and storytelling.</p>
                         <div class="donation-options">
                             <span class="donation-label">Suggested amounts:</span>
-                            <div class="donation-amounts">
-                                <span>¥1,000</span>
-                                <span>¥3,000</span>
-                                <span>¥5,000</span>
-                                <span>¥10,000</span>
-                            </div>
+                            <div class="donation-amounts"><span>¥1,000</span><span>¥3,000</span><span>¥5,000</span><span>¥10,000</span></div>
                         </div>
-                        <a href="https://www.docuathan.com/en/phyoe-dhana" target="_blank" rel="noopener noreferrer" class="btn btn-support">
+                        <a href="https://www.docuathan.com/en/phyoe-dhana" target="_blank" rel="noopener noreferrer" class="btn btn-support btn-shine">
                             <span class="btn-text">Donate Now</span>
-                            <span class="btn-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polyline points="15 3 21 3 21 9"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
-                                </svg>
-                            </span>
+                            <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-        
         <div class="support-bg-pattern"></div>
     </section>
 
@@ -736,49 +643,26 @@
                 <div class="footer-brand">
                     <span class="footer-logo">Phyoe Dhana</span>
                     <p class="footer-tagline">Documentary Filmmaker • Music Video Director • Myanmar in Exile</p>
-                    <div class="footer-pr-logo">
-                        <span class="pr-initials-sm">PR</span>
-                        <span class="pr-text-sm">Premium Record • Visual Production</span>
-                    </div>
+                    <div class="footer-pr-logo"><span class="pr-initials-sm">PR</span><span class="pr-text-sm">Premium Record • Visual Production</span></div>
                 </div>
-                
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/Phyo3Dhana" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/phyoe_dhana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/playlist?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
+                    <a href="https://www.facebook.com/Phyo3Dhana" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://www.instagram.com/phyoe_dhana/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="https://www.youtube.com/playlist?list=PLP95znBjgkWzL2ypitzHsqJ-Mkoy1qHL6" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
                 </div>
-                
-                <div class="footer-quote">
-                    <p>"The camera is a tool of truth—it sees what we choose to show the world."</p>
-                </div>
-                
+                <div class="footer-quote"><p>"The camera is a tool of truth—it sees what we choose to show the world."</p></div>
                 <div class="footer-bottom">
                     <p class="copyright">© 2024 Phyoe Dhana. All stories deserve to be told.</p>
                     <p class="equipment-credit">Equipment support by <a href="https://www.docuathan.com" target="_blank" rel="noopener noreferrer">Docu Athan</a></p>
                 </div>
             </div>
         </div>
-        
         <div class="footer-film-strip"></div>
     </footer>
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="18 15 12 9 6 15"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
 
     <!-- Lightbox -->
@@ -788,7 +672,6 @@
         <p class="lightbox-caption"></p>
     </div>
 
-    <!-- Scripts -->
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
 </body>

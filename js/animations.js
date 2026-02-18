@@ -172,23 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ============================================
-    // INTERSECTION-BASED NAV HIGHLIGHT
-    // ============================================
-    const navHighlightObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-            }
-        });
-    }, { threshold: 0.2, rootMargin: '-80px 0px -40% 0px' });
-
-    document.querySelectorAll('section[id]').forEach(section => {
-        navHighlightObserver.observe(section);
-    });
+    // Nav highlighting handled in main.js (single scroll handler)
 
     // ============================================
     // GALLERY HOVER SOUND EFFECT (visual)
@@ -207,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // SCROLL-LINKED RECORDING TIME
     // ============================================
     const recTimeEl = document.querySelector('.rec-time');
-    if (recTimeEl) {
+    if (recTimeEl && window.innerWidth > 768) {
         let startTime = Date.now();
         setInterval(() => {
             const elapsed = Date.now() - startTime;
@@ -215,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const seconds = Math.floor((elapsed % 60000) / 1000);
             const frames = Math.floor((elapsed % 1000) / 41.67);
             recTimeEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${String(frames).padStart(2, '0')}`;
-        }, 42);
+        }, 200);
     }
 
     // ============================================
@@ -229,16 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ============================================
-    // PERFORMANCE: RAF-based scroll handler
-    // ============================================
-    let ticking = false;
-    function onScroll() {
-        if (!ticking) {
-            requestAnimationFrame(() => { ticking = false; });
-            ticking = true;
-        }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // Scroll performance handled by unified handler in main.js
 
 });

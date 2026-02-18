@@ -46,25 +46,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link:not(.support-link)');
 
-    // Scroll effect
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        if (navbar) {
-            if (currentScroll > 80) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+    // Single unified scroll handler (perf: only one listener)
+    let scrollTicking = false;
+    const sections = document.querySelectorAll('section[id]');
+
+    function onScroll() {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+            const currentScroll = window.pageYOffset;
+
+            // Navbar scroll effect
+            if (navbar) {
+                navbar.classList.toggle('scrolled', currentScroll > 80);
             }
-        }
-        lastScroll = currentScroll;
 
-        // Scroll progress
-        updateScrollProgress();
+            // Scroll progress
+            updateScrollProgress();
 
-        // Back to top
-        updateBackToTop();
-    }, { passive: true });
+            // Back to top
+            updateBackToTop();
+
+            // Active nav tracking
+            const scrollY = currentScroll + 200;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                if (navLink) {
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        navLink.classList.add('active');
+                    }
+                }
+            });
+
+            scrollTicking = false;
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     // Mobile toggle
     if (navToggle) {
@@ -83,28 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target) {
                 if (navMenu) navMenu.classList.remove('active');
                 if (navToggle) navToggle.classList.remove('active');
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const offset = 80;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         });
     });
-
-    // Active nav tracking
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset + 200;
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            if (navLink) {
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    navLink.classList.add('active');
-                }
-            }
-        });
-    }, { passive: true });
 
     // ============================================
     // SCROLL PROGRESS BAR
@@ -203,8 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
         frameCounterEl.textContent = `FRM ${String(frameCount).padStart(5, '0')}`;
     }
 
-    setInterval(updateTimecode, 42);
-    setInterval(updateFrameCounter, 42);
+    // Only run timers on desktop (hidden on mobile anyway)
+    if (window.innerWidth > 768) {
+        setInterval(updateTimecode, 200);
+        setInterval(updateFrameCounter, 200);
+    }
 
     // ============================================
     // CAMERA FLASH
@@ -314,12 +323,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // HERO PARTICLES (CSS-only, created via JS)
     // ============================================
-    const heroParticles = document.querySelector('.hero-particles');
-    if (heroParticles) {
-        for (let i = 0; i < 10; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            heroParticles.appendChild(particle);
+    // Only create particles on desktop
+    if (window.innerWidth > 768) {
+        const heroParticles = document.querySelector('.hero-particles');
+        if (heroParticles) {
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                heroParticles.appendChild(particle);
+            }
         }
     }
 

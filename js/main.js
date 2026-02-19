@@ -6,16 +6,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ============================================
-    // PRELOADER with Countdown
+    // PRELOADER - Film Leader Countdown (5 to 1)
     // ============================================
     const preloader = document.querySelector('.preloader');
     const countdownNum = document.getElementById('countdownNum');
-    const countdownRing = document.querySelector('.countdown-ring');
-    let count = 3;
+    let count = 5;
 
     function updateCountdown() {
         if (countdownNum) countdownNum.textContent = count;
-        if (count > 0) {
+        if (count > 1) {
             count--;
             setTimeout(updateCountdown, 900);
         } else {
@@ -25,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.body.style.overflow = '';
                     initPostLoad();
                 }
-            }, 300);
+            }, 500);
         }
     }
 
     document.body.style.overflow = 'hidden';
-    setTimeout(updateCountdown, 200);
+    setTimeout(updateCountdown, 300);
 
     function initPostLoad() {
         triggerCameraFlash();

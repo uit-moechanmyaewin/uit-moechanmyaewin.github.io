@@ -39,26 +39,80 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- Cinematic Preloader -->
+    <!-- Cinematic Film Preloader -->
     <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-countdown">
-                <div class="countdown-circle">
-                    <svg viewBox="0 0 120 120">
-                        <circle cx="60" cy="60" r="54" class="countdown-track"/>
-                        <circle cx="60" cy="60" r="54" class="countdown-ring"/>
-                        <line x1="60" y1="8" x2="60" y2="60" class="countdown-hand"/>
-                    </svg>
-                    <span class="countdown-number" id="countdownNum">3</span>
-                </div>
-                <div class="countdown-crosshair">
-                    <span></span><span></span><span></span><span></span>
-                </div>
+        <div class="film-preloader-screen">
+            <!-- Film scratches & dust overlay -->
+            <div class="film-scratches"></div>
+            <div class="film-dust"></div>
+            <!-- Film strip borders -->
+            <div class="film-perf-strip film-perf-left">
+                <div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div>
+                <div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div>
+                <div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div>
             </div>
-            <div class="preloader-bar">
-                <div class="preloader-bar-fill"></div>
+            <div class="film-perf-strip film-perf-right">
+                <div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div>
+                <div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div>
+                <div class="perf-hole"></div><div class="perf-hole"></div><div class="perf-hole"></div>
             </div>
-            <p class="preloader-text">LOADING REEL<span class="dot-anim">...</span></p>
+            <!-- Main content -->
+            <div class="preloader-content">
+                <!-- Film leader countdown -->
+                <div class="film-leader">
+                    <div class="leader-circle">
+                        <svg viewBox="0 0 200 200" class="leader-svg">
+                            <circle cx="100" cy="100" r="90" class="leader-ring-outer"/>
+                            <circle cx="100" cy="100" r="70" class="leader-ring-mid"/>
+                            <circle cx="100" cy="100" r="45" class="leader-ring-inner"/>
+                            <!-- Cross lines -->
+                            <line x1="100" y1="5" x2="100" y2="195" class="leader-cross"/>
+                            <line x1="5" y1="100" x2="195" y2="100" class="leader-cross"/>
+                            <!-- Diagonal lines -->
+                            <line x1="25" y1="25" x2="175" y2="175" class="leader-diag"/>
+                            <line x1="175" y1="25" x2="25" y2="175" class="leader-diag"/>
+                            <!-- Sweep hand -->
+                            <line x1="100" y1="100" x2="100" y2="15" class="leader-sweep"/>
+                        </svg>
+                        <span class="leader-number" id="countdownNum">5</span>
+                    </div>
+                </div>
+                <!-- Film reel animation -->
+                <div class="film-reels-loader">
+                    <div class="reel-assembly reel-left-assembly">
+                        <svg viewBox="0 0 80 80" class="reel-svg">
+                            <circle cx="40" cy="40" r="36" class="reel-outer"/>
+                            <circle cx="40" cy="40" r="12" class="reel-hub"/>
+                            <circle cx="40" cy="40" r="6" class="reel-center"/>
+                            <line x1="40" y1="4" x2="40" y2="76" class="reel-spoke"/>
+                            <line x1="4" y1="40" x2="76" y2="40" class="reel-spoke"/>
+                            <line x1="14" y1="14" x2="66" y2="66" class="reel-spoke"/>
+                            <line x1="66" y1="14" x2="14" y2="66" class="reel-spoke"/>
+                        </svg>
+                    </div>
+                    <div class="film-tape-loader"></div>
+                    <div class="reel-assembly reel-right-assembly">
+                        <svg viewBox="0 0 80 80" class="reel-svg">
+                            <circle cx="40" cy="40" r="36" class="reel-outer"/>
+                            <circle cx="40" cy="40" r="12" class="reel-hub"/>
+                            <circle cx="40" cy="40" r="6" class="reel-center"/>
+                            <line x1="40" y1="4" x2="40" y2="76" class="reel-spoke"/>
+                            <line x1="4" y1="40" x2="76" y2="40" class="reel-spoke"/>
+                            <line x1="14" y1="14" x2="66" y2="66" class="reel-spoke"/>
+                            <line x1="66" y1="14" x2="14" y2="66" class="reel-spoke"/>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Projector light beam -->
+                <div class="projector-beam"></div>
+                <!-- Loading bar -->
+                <div class="preloader-bar">
+                    <div class="preloader-bar-fill"></div>
+                </div>
+                <p class="preloader-text">THREADING FILM<span class="dot-anim">...</span></p>
+            </div>
+            <!-- Vignette -->
+            <div class="film-vignette"></div>
         </div>
     </div>
 
@@ -380,7 +434,7 @@
                                 <a href="https://www.youtube.com/watch?v=AVJBYAJl3DU" target="_blank" rel="noopener noreferrer" class="thumbnail-overlay">
                                     <span class="play-icon"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg></span>
                                 </a>
-                                <img src="images/shattered-dream.jpg" alt="The Shattered Dream - Documentary Film by Phyoe Dhana" class="thumbnail-image" loading="lazy" width="1280" height="720">
+                                <img src="images/shattered-dream-child.jpg" alt="The Shattered Dream - Documentary Film by Phyoe Dhana" class="thumbnail-image" loading="lazy" width="1280" height="720">
                             </div>
                             <div class="work-year"><span>2023</span></div>
                         </div>

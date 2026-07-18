@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navPrev = () => loadVideo((currentIdx - 1 + mvCards.length) % mvCards.length);
         
         mvCards.forEach((card, idx) => {
-            const clickArea = card.querySelector('.mv-embed-wrapper');
+            const clickArea = card.querySelector('.mv-embed-wrapper') || card.querySelector('.work-thumbnail');
             if(clickArea) {
                 clickArea.addEventListener('click', () => openLightbox(idx));
             }

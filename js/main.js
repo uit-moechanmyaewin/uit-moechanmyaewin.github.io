@@ -430,25 +430,130 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================
-    // LAZY LOADING for YouTube iframes
+    // SELF-HOSTED VIDEO CARDS & LIGHTBOX
     // ============================================
-    const iframeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const iframe = entry.target;
-                const src = iframe.dataset.src || iframe.src;
-                if (iframe.dataset.src) {
-                    iframe.src = iframe.dataset.src;
-                    delete iframe.dataset.src;
+    const mvCards = Array.from(document.querySelectorAll('[data-mv-card]'));
+    
+    // 1. Scroll-to-play previews
+    if (mvCards.length > 0 && 'IntersectionObserver' in window) {
+        const MAX_PLAYING = 3;
+        const playing = new Set();
+        const ratios = new Map();
+        
+        const applyPreviews = () => {
+            const keep = new Set(
+                [...ratios.entries()]
+                    .filter(([, r]) => r > 0)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, MAX_PLAYING)
+                    .map(([c]) => c)
+            );
+            
+            for (const card of mvCards) {
+                const video = card.querySelector('.mv-preview');
+                if (!video) continue;
+                
+                if (keep.has(card)) {
+                    if (!playing.has(card)) {
+                        if (!video.src) video.src = video.dataset.previewSrc;
+                        video.play().then(() => card.classList.add('is-previewing')).catch(() => {});
+                        playing.add(card);
+                    }
+                } else {
+                    if (playing.has(card)) {
+                        card.classList.remove('is-previewing');
+                        video.pause();
+                        playing.delete(card);
+                    }
                 }
-                iframeObserver.unobserve(iframe);
+            }
+        };
+
+        const previewObserver = new IntersectionObserver((entries) => {
+            for (const e of entries) {
+                ratios.set(e.target, e.isIntersecting ? e.intersectionRatio : 0);
+            }
+            applyPreviews();
+        }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
+
+        mvCards.forEach(card => previewObserver.observe(card));
+    }
+
+    // 2. Video Lightbox Logic
+    const vlb = document.getElementById('videoLightbox');
+    if (vlb) {
+        const vlbStage = vlb.querySelector('[data-vlb-stage]');
+        const vlbTitle = vlb.querySelector('[data-vlb-title]');
+        const vlbYtLink = vlb.querySelector('[data-vlb-ytlink]');
+        const vlbCounter = vlb.querySelector('[data-vlb-counter]');
+        const btnPrev = vlb.querySelector('[data-vlb-prev]');
+        const btnNext = vlb.querySelector('[data-vlb-next]');
+        
+        let currentIdx = 0;
+        
+        const loadVideo = (idx) => {
+            currentIdx = idx;
+            const card = mvCards[idx];
+            const dataset = card.dataset;
+            
+            vlbStage.innerHTML = '';
+            
+            const video = document.createElement('video');
+            video.src = dataset.video;
+            video.poster = dataset.poster;
+            video.controls = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            video.muted = false; // Start with sound since user clicked to open
+            
+            vlbStage.appendChild(video);
+            
+            vlbTitle.textContent = dataset.title;
+            vlbYtLink.href = dataset.youtube;
+            vlbCounter.textContent = `${idx + 1} / ${mvCards.length}`;
+            vlbCounter.hidden = mvCards.length <= 1;
+            
+            btnPrev.hidden = mvCards.length <= 1;
+            btnNext.hidden = mvCards.length <= 1;
+        };
+        
+        const openLightbox = (idx) => {
+            loadVideo(idx);
+            vlb.hidden = false;
+            document.body.style.overflow = 'hidden'; // prevent scroll
+            setTimeout(() => vlb.classList.add('is-open'), 10);
+        };
+        
+        const closeLightbox = () => {
+            vlb.classList.remove('is-open');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                vlb.hidden = true;
+                vlbStage.innerHTML = ''; // Stop video
+            }, 300);
+        };
+        
+        const navNext = () => loadVideo((currentIdx + 1) % mvCards.length);
+        const navPrev = () => loadVideo((currentIdx - 1 + mvCards.length) % mvCards.length);
+        
+        mvCards.forEach((card, idx) => {
+            const clickArea = card.querySelector('.mv-embed-wrapper');
+            if(clickArea) {
+                clickArea.addEventListener('click', () => openLightbox(idx));
             }
         });
-    }, { rootMargin: '200px' });
-
-    document.querySelectorAll('iframe[data-src]').forEach(iframe => {
-        iframeObserver.observe(iframe);
-    });
+        
+        vlb.querySelectorAll('[data-vlb-close]').forEach(btn => btn.addEventListener('click', closeLightbox));
+        btnNext.addEventListener('click', navNext);
+        btnPrev.addEventListener('click', navPrev);
+        
+        document.addEventListener('keydown', (e) => {
+            if (vlb.hidden) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') navNext();
+            if (e.key === 'ArrowLeft') navPrev();
+        });
+    }
 
     // ============================================
     // KEYBOARD ACCESSIBILITY

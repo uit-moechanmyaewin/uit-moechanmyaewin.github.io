@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0a0a08"/>
+  <text x="32" y="40" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="bold" fill="#d4af37" text-anchor="middle">PD</text>
+  <path d="M32 44l2.35 4.76 5.25.76-3.8 3.7.9 5.23L32 56l-4.7 2.45.9-5.23-3.8-3.7 5.25-.76z" fill="#d92b2b"/>
+</svg>

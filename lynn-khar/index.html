@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>လင်းခါး — Lynn Khar | Poet · Essayist · Novelist</title>
+    <meta name="description" content="Official promo page for Myanmar author Lynn Khar (လင်းခါး) — poet, essayist and novelist. Explore his literary works including ရေသေအိုင်, စမ်းရေကြည်နု, and ဖန်ပုလင်းထဲက အသည်းကွဲပုစဉ်းပျံ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <span class="nav-logo-mm">လင်းခါး</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" data-text="About">About</a></li>
+                <li><a href="#books" data-text="Books">Books</a></li>
+                <li><a href="#excerpts" data-text="Excerpts">Excerpts</a></li>
+                <li><a href="#timeline" data-text="Journey">Journey</a></li>
+                <li><a href="#contact" data-text="Connect">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Floating page indicator -->
+    <div class="page-indicator" id="pageIndicator">
+        <div class="indicator-dot active" data-section="hero"></div>
+        <div class="indicator-dot" data-section="about"></div>
+        <div class="indicator-dot" data-section="books"></div>
+        <div class="indicator-dot" data-section="excerpts"></div>
+        <div class="indicator-dot" data-section="timeline"></div>
+        <div class="indicator-dot" data-section="contact"></div>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge reveal-up">
+                <span class="badge-line"></span>
+                <span>Poet · Essayist · Novelist</span>
+                <span class="badge-line"></span>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-title-mm reveal-up" style="--delay: 0.2s">လင်းခါး</span>
+                <span class="hero-title-en reveal-up" style="--delay: 0.4s">Lynn Khar</span>
+            </h1>
+            <p class="hero-subtitle reveal-up" style="--delay: 0.6s">
+                ဘယ်ဘဝဟာ ဘယ်လောက်ခက်ခဲတယ်ဆိုဆို<br>
+                ကိုယ်ချစ်တဲ့သူတွေ မရှိဘဲ ရှင်သန်ရမယ့်ဘဝဟာ အခက်ခဲဆုံးပဲ
+            </p>
+            <div class="hero-cta reveal-up" style="--delay: 0.8s">
+                <a href="#books" class="btn btn-primary">
+                    <span>Explore Works</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </a>
+                <a href="#about" class="btn btn-ghost">
+                    <span>Meet the Author</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="section about" id="about">
+        <div class="section-inner">
+            <div class="about-grid">
+                <div class="about-visual reveal-left">
+                    <div class="about-image-frame">
+                        <div class="about-image-placeholder">
+                            <div class="placeholder-icon">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                </svg>
+                            </div>
+                            <span class="placeholder-text">လင်းခါး</span>
+                        </div>
+                        <div class="about-image-decoration"></div>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">Published Works</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">★ 4.75</span>
+                            <span class="stat-label">Avg Rating</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content reveal-right">
+                    <div class="section-label">
+                        <span class="label-number">01</span>
+                        <span class="label-line"></span>
+                        <span>The Author</span>
+                    </div>
+                    <h2 class="section-title">
+                        Stories that breathe<br>
+                        <em>life into truth</em>
+                    </h2>
+                    <div class="about-text">
+                        <p>
+                            Lynn Khar (လင်းခါး) is a contemporary Myanmar poet, essayist, and novelist whose works explore the raw intersections of human resilience, social injustice, and the quiet beauty found within everyday struggles.
+                        </p>
+                        <p>
+                            His literary voice emerged from the tradition of Myanmar's rich poetic heritage — weaving Burmese sensibility with unflinching observations of life under systemic oppression. Published through <strong>ငါတို့စာပေ (Our Literature)</strong>, his works have garnered critical acclaim and deeply resonated with readers across Myanmar.
+                        </p>
+                        <p>
+                            From the haunting prose of <em>ရေသေအိုင်</em> to the lyrical tenderness of <em>စမ်းရေကြည်နု</em>, Lynn Khar crafts narratives that are at once intimate and universal — stories that linger long after the final page.
+                        </p>
+                    </div>
+                    <div class="about-tags">
+                        <span class="tag">Myanmar Literature</span>
+                        <span class="tag">Contemporary Fiction</span>
+                        <span class="tag">Poetry</span>
+                        <span class="tag">Social Realism</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOOKS SECTION ===== -->
+    <section class="section books" id="books">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div class="section-label">
+                    <span class="label-number">02</span>
+                    <span class="label-line"></span>
+                    <span>Literary Works</span>
+                </div>
+                <h2 class="section-title">Published <em>Novels</em></h2>
+                <p class="section-desc">Each work is a window into the human condition — stories of love, loss, resilience, and the poetry hidden within the mundane.</p>
+            </div>
+            <div class="books-grid">
+
+                <!-- Book 1 -->
+                <article class="book-card reveal-up" style="--delay: 0.1s">
+                    <div class="book-card-inner">
+                        <div class="book-cover">
+                            <div class="book-cover-art book-1">
+                                <div class="cover-pattern"></div>
+                                <div class="cover-content">
+                                    <span class="cover-author">လင်းခါး</span>
+                                    <h3 class="cover-title">ရေသေအိုင်</h3>
+                                    <span class="cover-year">2019</span>
+                                </div>
+                            </div>
+                            <div class="book-spine"></div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-meta">
+                                <span class="book-year">2019</span>
+                                <span class="book-pages">228 pages</span>
+                            </div>
+                            <h3 class="book-title">ရေသေအိုင်</h3>
+                            <p class="book-title-en">Stagnant Water</p>
+                            <div class="book-rating">
+                                <div class="stars">
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star half">★</span>
+                                </div>
+                                <span class="rating-text">4.75 / 5</span>
+                            </div>
+                            <p class="book-desc">
+                                The debut novel that announced a powerful new voice in Myanmar literature. A haunting exploration of four friends navigating life, love, and loss under the shadow of military dictatorship — where survival itself becomes an act of defiance.
+                            </p>
+                            <div class="book-tags">
+                                <span>First Novel</span>
+                                <span>Social Realism</span>
+                                <span>ငါတို့စာပေ</span>
+                            </div>
+                            <a href="https://www.pannsattlann.com/product/yay-thay-eain/" target="_blank" rel="noopener" class="book-link">
+                                <span>View on Pann Satt Lann</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 2 -->
+                <article class="book-card reveal-up" style="--delay: 0.3s">
+                    <div class="book-card-inner">
+                        <div class="book-cover">
+                            <div class="book-cover-art book-2">
+                                <div class="cover-pattern"></div>
+                                <div class="cover-content">
+                                    <span class="cover-author">လင်းခါး</span>
+                                    <h3 class="cover-title">စမ်းရေ<br>ကြည်နု</h3>
+                                    <span class="cover-year">2020</span>
+                                </div>
+                            </div>
+                            <div class="book-spine"></div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-meta">
+                                <span class="book-year">2020</span>
+                                <span class="book-pages">239 pages</span>
+                            </div>
+                            <h3 class="book-title">စမ်းရေကြည်နု</h3>
+                            <p class="book-title-en">Crystal Spring Water</p>
+                            <div class="book-rating">
+                                <div class="stars">
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                </div>
+                                <span class="rating-text">5.00 / 5</span>
+                            </div>
+                            <p class="book-desc">
+                                A perfect-rated masterpiece that flows with lyrical grace. Through crystalline prose, Lynn Khar explores the purity of human connection and the resilience of the spirit — a literary spring that nourishes the soul.
+                            </p>
+                            <div class="book-tags">
+                                <span>Perfect Rating</span>
+                                <span>Lyrical Fiction</span>
+                                <span>ငါတို့စာပေ</span>
+                            </div>
+                            <a href="https://www.pannsattlann.com/product/sann-yay-kyi-nu/" target="_blank" rel="noopener" class="book-link">
+                                <span>View on Pann Satt Lann</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Book 3 -->
+                <article class="book-card reveal-up" style="--delay: 0.5s">
+                    <div class="book-card-inner">
+                        <div class="book-cover">
+                            <div class="book-cover-art book-3">
+                                <div class="cover-pattern"></div>
+                                <div class="cover-content">
+                                    <span class="cover-author">လင်းခါး</span>
+                                    <h3 class="cover-title">ဖန်ပုလင်းထဲက<br>အသည်းကွဲ<br>ပုစဉ်းပျံ</h3>
+                                    <span class="cover-year">—</span>
+                                </div>
+                            </div>
+                            <div class="book-spine"></div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-meta">
+                                <span class="book-year">Latest</span>
+                                <span class="book-pages">Novel</span>
+                            </div>
+                            <h3 class="book-title">ဖန်ပုလင်းထဲက အသည်းကွဲပုစဉ်းပျံ</h3>
+                            <p class="book-title-en">The Heartbroken Firefly in the Bottle</p>
+                            <div class="book-rating">
+                                <div class="stars">
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star filled">★</span>
+                                    <span class="star half">★</span>
+                                </div>
+                                <span class="rating-text">4.50 / 5</span>
+                            </div>
+                            <p class="book-desc">
+                                A luminous tale of longing and fragile beauty — like a firefly trapped in glass, the heart beats on even when the world grows dark. Lynn Khar's most emotionally resonant work yet captures the delicate tension between hope and heartbreak.
+                            </p>
+                            <div class="book-tags">
+                                <span>Latest Work</span>
+                                <span>Emotional</span>
+                                <span>ငါတို့စာပေ</span>
+                            </div>
+                            <a href="https://www.pannsattlann.com/author-tag/linn-khar/" target="_blank" rel="noopener" class="book-link">
+                                <span>View on Pann Satt Lann</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXCERPTS / QUOTES SECTION ===== -->
+    <section class="section excerpts" id="excerpts">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div class="section-label">
+                    <span class="label-number">03</span>
+                    <span class="label-line"></span>
+                    <span>Literary Excerpts</span>
+                </div>
+                <h2 class="section-title">Words that <em>linger</em></h2>
+            </div>
+            <div class="quotes-carousel">
+                <div class="quote-card active reveal-up" style="--delay: 0.1s">
+                    <div class="quote-mark">"</div>
+                    <blockquote class="quote-text">
+                        ဘယ်ဘဝဟာ ဘယ်လောက်ခက်ခဲတယ်ဆိုဆို ကိုယ်ချစ်တဲ့သူတွေ မရှိဘဲ ရှင်သန်ရမယ့်ဘဝဟာ အခက်ခဲဆုံးပဲ။
+                    </blockquote>
+                    <p class="quote-translation">
+                        "No matter how difficult life may be, the hardest life of all is one lived without the people you love."
+                    </p>
+                    <cite class="quote-source">— ရေသေအိုင် (Stagnant Water)</cite>
+                </div>
+                <div class="quote-card reveal-up" style="--delay: 0.3s">
+                    <div class="quote-mark">"</div>
+                    <blockquote class="quote-text">
+                        ခေါက်ရိုးကျိုးပရိယာယ်တွေနဲ့ စာဖတ်သူကို မဖမ်းစားချင်လို့ပါပဲ။
+                    </blockquote>
+                    <p class="quote-translation">
+                        "I don't wish to captivate readers with conventional tricks."
+                    </p>
+                    <cite class="quote-source">— On his writing philosophy</cite>
+                </div>
+                <div class="quote-card reveal-up" style="--delay: 0.5s">
+                    <div class="quote-mark">"</div>
+                    <blockquote class="quote-text">
+                        နင်းပြားတို့ရဲ့ သွားရာလမ်း
+                    </blockquote>
+                    <p class="quote-translation">
+                        "The path of the downtrodden."
+                    </p>
+                    <cite class="quote-source">— ရေသေအိုင် (Stagnant Water)</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIMELINE SECTION ===== -->
+    <section class="section timeline-section" id="timeline">
+        <div class="section-inner">
+            <div class="section-header reveal-up">
+                <div class="section-label">
+                    <span class="label-number">04</span>
+                    <span class="label-line"></span>
+                    <span>Literary Journey</span>
+                </div>
+                <h2 class="section-title">A path through <em>words</em></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Early Career</span>
+                        <h3>Poetry & Essays</h3>
+                        <p>Lynn Khar began his literary journey as a poet and essayist, cultivating a distinctive voice that blended Myanmar's poetic traditions with sharp social observation.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2019</span>
+                        <h3>ရေသေအိုင် — First Novel</h3>
+                        <p>Published through ငါတို့စာပေ, this debut novel stunned readers with its unflinching portrait of youth under military dictatorship. Rated 4.75/5 — a landmark in contemporary Myanmar fiction.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">June 2020</span>
+                        <h3>စမ်းရေကြည်နု — Perfect Score</h3>
+                        <p>His second novel achieved a perfect 5.00/5 rating, cementing Lynn Khar's reputation as one of Myanmar's most compelling contemporary voices.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Latest</span>
+                        <h3>ဖန်ပုလင်းထဲက အသည်းကွဲပုစဉ်းပျံ</h3>
+                        <p>The Heartbroken Firefly in the Bottle — a poetic, emotionally charged work that further expanded Lynn Khar's literary universe. Rated 4.50/5.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-marker active"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Continuing</span>
+                        <h3>The Journey Continues</h3>
+                        <p>With each work, Lynn Khar deepens the conversation between literature and life, crafting stories that illuminate the human spirit in all its complexity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PUBLISHER / CONNECT SECTION ===== -->
+    <section class="section contact" id="contact">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <div class="contact-content reveal-left">
+                    <div class="section-label">
+                        <span class="label-number">05</span>
+                        <span class="label-line"></span>
+                        <span>Get the Books</span>
+                    </div>
+                    <h2 class="section-title">
+                        Begin your<br><em>reading journey</em>
+                    </h2>
+                    <p class="contact-desc">
+                        Lynn Khar's novels are published by <strong>ငါတို့စာပေ (Our Literature)</strong> and available through Pann Satt Lann Books — Myanmar's premier online bookstore.
+                    </p>
+                    <div class="contact-links">
+                        <a href="https://www.pannsattlann.com/author-tag/linn-khar/" target="_blank" rel="noopener" class="contact-link-card">
+                            <div class="link-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Pann Satt Lann Books</h4>
+                                <p>Browse & purchase all works</p>
+                            </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                        <a href="https://savethelibrarymyanmar.org/review/435/show" target="_blank" rel="noopener" class="contact-link-card">
+                            <div class="link-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4>Save The Library Myanmar</h4>
+                                <p>Read reviews & literary analysis</p>
+                            </div>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-visual reveal-right">
+                    <div class="contact-quote-card">
+                        <div class="cq-decoration">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <blockquote>
+                            "Literature is the mirror<br>through which a society<br>sees its own soul."
+                        </blockquote>
+                        <div class="cq-author">
+                            <div class="cq-avatar">
+                                <span>L</span>
+                            </div>
+                            <div>
+                                <strong>Lynn Khar</strong>
+                                <span>လင်းခါး</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo-mm">လင်းခါး</span>
+                    <span class="footer-logo-en">Lynn Khar</span>
+                </div>
+                <div class="footer-nav">
+                    <a href="#about">About</a>
+                    <a href="#books">Books</a>
+                    <a href="#excerpts">Excerpts</a>
+                    <a href="#timeline">Journey</a>
+                    <a href="#contact">Connect</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 — Lynn Khar Literary. Published by ငါတို့စာပေ.</p>
+                <p class="footer-credit">Crafted with literary devotion</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

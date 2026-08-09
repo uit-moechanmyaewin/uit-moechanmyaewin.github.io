@@ -1017,7 +1017,7 @@ img { max-width: 100%; height: auto; display: block; }
 .image-frame:hover .frame-corner { width: 40px; height: 40px; }
 
 .about-image {
-    aspect-ratio: 3/4;
+    aspect-ratio: 4/5;
     background: var(--color-bg-tertiary);
     border-radius: var(--radius-sm);
     overflow: hidden;
